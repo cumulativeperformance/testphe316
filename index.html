@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stomach Cancer Awareness · 위암 · 胃がん · Ung Thư Dạ Dày · 胃癌</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&family=Noto+Sans+KR:wght@400;700;900&family=Noto+Sans+JP:wght@400;700;900&family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --red:#D94F3A; --red-soft:#FDF0EE; --red-mid:#F2C9C3;
+      --warm:#FAF6F1; --sand:#F0E8DC;
+      --ink:#2A1F1A; --body:#4A3B32; --muted:#8A7A70;
+      --green:#3A7D5A; --green-soft:#EBF5EF;
+      --gold:#C8890A; --gold-soft:#FDF5E0;
+      --teal:#1E6B7A; --teal-soft:#E5F3F5;
+      --white:#fff;
+      --shadow:0 2px 12px rgba(0,0,0,0.06);
+      --radius:16px;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; }
+    body{
+      background:var(--warm);
+      color:var(--ink);
+      font-family:'Nunito',sans-serif;
+      font-size:16px;
+      line-height:1.65;
+      overflow-x:hidden;
+      max-width:480px;
+      margin:0 auto;
+    }
+    body.lang-ko{ font-family:'Noto Sans KR',sans-serif; }
+    body.lang-ja{ font-family:'Noto Sans JP',sans-serif; }
+    body.lang-zh{ font-family:'Noto Sans SC',sans-serif; }
+    body.lang-vi{ font-family:'Nunito',sans-serif; }
+
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+    }
+
+    /* ── LANGUAGE PICKER ── */
+    .lang-screen{
+      min-height:100vh;
+      background:linear-gradient(160deg,#7B1D13 0%,#C8332A 60%,#E05A40 100%);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      padding:40px 28px;
+      text-align:center;
+      color:white;
+    }
+    .lang-screen.hidden{ display:none; }
+
+    .lang-logo{
+      width:72px; height:72px;
+      background:rgba(255,255,255,0.15);
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      margin:0 auto 24px;
+    }
+    .lang-title{
+      font-family:'Lora',serif;
+      font-size:26px;
+      font-weight:600;
+      line-height:1.3;
+      margin-bottom:10px;
+    }
+    .lang-sub{ font-size:14px; opacity:0.8; margin-bottom:28px; line-height:1.6; }
+
+    .lang-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      width:100%;
+      max-width:340px;
+    }
+    .lang-btn{
+      background:rgba(255,255,255,0.12);
+      border:2px solid rgba(255,255,255,0.25);
+      border-radius:14px;
+      padding:18px 14px;
+      cursor:pointer;
+      color:white;
+      font-family:inherit;
+      text-align:center;
+      transition:background .2s,border-color .2s,transform .1s;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .lang-btn:hover{ background:rgba(255,255,255,0.22); border-color:rgba(255,255,255,0.5); }
+    .lang-btn:active{ transform:scale(.97); }
+    .lang-flag{ font-size:28px; display:block; margin-bottom:6px; }
+    .lang-native{ font-size:20px; font-weight:900; display:block; margin-bottom:4px; }
+    .lang-english{ font-size:12px; opacity:.7; display:block; }
+
+    /* ── MAIN CONTENT ── */
+    #mainContent{ display:none; }
+    #mainContent.show{ display:block; }
+
+    /* language bar */
+    .lang-bar{
+      background:var(--ink);
+      color:#fff;
+      padding:10px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      font-size:13px;
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+    .lang-bar span{ opacity:.75; }
+    .lang-change-btn{
+      background:rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.2);
+      border-radius:50px;
+      padding:6px 14px;
+      color:white;
+      font-family:inherit;
+      font-size:12px;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .lang-change-btn:hover{ background:rgba(255,255,255,0.2); }
+
+    /* HERO */
+    .hero{
+      background:linear-gradient(160deg,#7B1D13 0%,#C8332A 60%,#E05A40 100%);
+      color:#fff;
+      padding:48px 26px 44px;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::after{
+      content:'';
+      position:absolute;
+      bottom:-1px; left:0; right:0;
+      height:32px;
+      background:var(--warm);
+      clip-path:ellipse(60% 100% at 50% 100%);
+    }
+    .hero-icon{
+      display:flex; align-items:center; justify-content:center;
+      margin:0 auto 18px;
+      width:72px; height:72px;
+      background:rgba(255,255,255,0.15);
+      border-radius:50%;
+    }
+    .hero h1{
+      font-family:'Lora',serif;
+      font-size:26px;
+      font-weight:600;
+      line-height:1.25;
+      margin-bottom:12px;
+    }
+    .hero-msg{ font-size:15px; opacity:.92; line-height:1.65; }
+
+    /* audio */
+    .audio-wrap{ margin:18px 0 0; }
+    .audio-pill{
+      background:rgba(255,255,255,0.15);
+      border:1.5px solid rgba(255,255,255,0.25);
+      border-radius:50px;
+      padding:10px 14px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .play-btn{
+      width:38px; height:38px;
+      background:#fff;
+      border-radius:50%;
+      border:none;
+      cursor:pointer;
+      color:var(--red);
+      display:flex; align-items:center; justify-content:center;
+      flex-shrink:0;
+    }
+    .audio-label{ font-size:13px; font-weight:900; }
+    .audio-sub{ font-size:11px; opacity:.7; }
+    .progress-bar{ height:3px; background:rgba(255,255,255,0.15); border-radius:3px; margin-top:8px; overflow:hidden; }
+    .progress-fill{ height:100%; background:#fff; width:0%; }
+    .script-toggle{
+      background:none;
+      border:none;
+      color:rgba(255,255,255,0.75);
+      font-size:12px;
+      font-family:inherit;
+      cursor:pointer;
+      text-decoration:underline;
+      margin-top:8px;
+    }
+    .script-box{
+      background:rgba(0,0,0,0.2);
+      border-radius:10px;
+      padding:14px 16px;
+      font-size:13px;
+      font-style:italic;
+      line-height:1.7;
+      opacity:.9;
+      margin-top:10px;
+      display:none;
+      text-align:left;
+    }
+    .script-box.open{ display:block; }
+
+    /* SECTIONS */
+    .section{ padding:32px 22px; }
+    .section-head{ text-align:center; margin-bottom:18px; }
+    .section-head h2{
+      font-family:'Lora',serif;
+      font-size:22px;
+      font-weight:600;
+      color:var(--ink);
+      line-height:1.25;
+    }
+    .section-head p{ font-size:14px; color:var(--muted); margin-top:6px; }
+
+    /* cards */
+    .card{
+      background:var(--white);
+      border-radius:var(--radius);
+      padding:22px 18px;
+      margin-bottom:14px;
+      box-shadow:var(--shadow);
+      opacity:0;
+      transform:translateY(14px);
+      transition:opacity .5s ease, transform .5s ease;
+    }
+    .card.visible{ opacity:1; transform:none; }
+    .card-icon{
+      width:52px; height:52px;
+      border-radius:14px;
+      display:flex; align-items:center; justify-content:center;
+      margin-bottom:14px;
+    }
+    .card-title{
+      font-family:'Lora',serif;
+      font-size:18px;
+      font-weight:600;
+      margin-bottom:8px;
+      color:var(--ink);
+      line-height:1.3;
+    }
+    .card-body{ font-size:14.5px; color:var(--body); line-height:1.7; }
+    .card-body strong{ color:var(--ink); font-weight:900; }
+
+    .red-card{ background:var(--red-soft); border:1.5px solid var(--red-mid); }
+    .red-card .card-icon{ background:var(--red-mid); }
+    .white-card .card-icon{ background:var(--sand); }
+    .green-card{ background:var(--green-soft); }
+    .green-card .card-icon{ background:#c6e8d5; }
+    .gold-card{ background:var(--gold-soft); }
+    .gold-card .card-icon{ background:#f5e0a0; }
+    .teal-card{ background:var(--teal-soft); }
+    .teal-card .card-icon{ background:#b8dde4; }
+
+    /* fact row */
+    .fact-row{ display:flex; gap:10px; margin-top:6px; }
+    .fact-box{
+      flex:1;
+      background:var(--white);
+      border-radius:14px;
+      padding:18px 14px;
+      text-align:center;
+      box-shadow:0 2px 10px rgba(0,0,0,0.05);
+      opacity:0;
+      transform:translateY(10px);
+      transition:opacity .5s ease, transform .5s ease;
+    }
+    .fact-box.visible{ opacity:1; transform:none; }
+    .fact-box .big{ font-family:'Lora',serif; font-size:34px; font-weight:600; line-height:1; margin-bottom:6px; }
+    .fact-box .label{ font-size:12px; color:var(--body); line-height:1.4; font-weight:700; }
+    .fact-box.red .big{ color:var(--red); }
+    .fact-box.green .big{ color:var(--green); }
+
+    /* compare */
+    .compare-strip{
+      background:var(--white);
+      border-radius:var(--radius);
+      overflow:hidden;
+      margin-bottom:14px;
+      box-shadow:var(--shadow);
+      opacity:0;
+      transform:translateY(10px);
+      transition:opacity .5s ease, transform .5s ease;
+    }
+    .compare-strip.visible{ opacity:1; transform:none; }
+    .compare-row{
+      display:flex;
+      align-items:center;
+      padding:14px 16px;
+      gap:12px;
+      border-bottom:1px solid #f0ece6;
+    }
+    .compare-row:last-child{ border-bottom:none; }
+    .compare-icon{ width:34px; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+    .compare-text{ flex:1; }
+    .compare-name{ font-size:13px; font-weight:900; color:var(--ink); }
+    .compare-note{ font-size:11.5px; color:var(--muted); margin-top:1px; }
+    .compare-bar-wrap{ width:82px; flex-shrink:0; }
+    .compare-bar{ height:8px; border-radius:4px; background:var(--red); width:0%; transition:width 1s cubic-bezier(0.23,1,0.32,1); }
+    .compare-bar.low{ background:#ccc; }
+    .compare-val{ font-size:11px; font-weight:900; color:var(--red); text-align:right; margin-top:3px; }
+    .compare-val.low{ color:var(--muted); }
+
+    /* checklist */
+    .checklist-section{ background:var(--sand); }
+    .check-card{
+      background:var(--white);
+      border-radius:var(--radius);
+      padding:22px 18px;
+      box-shadow:var(--shadow);
+    }
+    .check-card h3{
+      font-family:'Lora',serif;
+      font-size:18px;
+      font-weight:600;
+      margin-bottom:14px;
+      color:var(--ink);
+      display:flex; align-items:center; gap:8px;
+    }
+    .check-item{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      padding:12px 0;
+      border-bottom:1px solid #f0ece6;
+      cursor:pointer;
+      -webkit-tap-highlight-color:transparent;
+      user-select:none;
+    }
+    .check-item:last-of-type{ border-bottom:none; }
+    .check-box{
+      width:26px; height:26px;
+      border:2px solid #ddd;
+      border-radius:8px;
+      flex-shrink:0;
+      display:flex; align-items:center; justify-content:center;
+      transition:all .2s;
+      margin-top:1px;
+    }
+    .check-box.checked{ background:var(--green); border-color:var(--green); }
+    .check-text{ font-size:14px; color:var(--body); line-height:1.55; }
+    .check-result{
+      margin-top:16px;
+      padding:14px 16px;
+      border-radius:10px;
+      font-size:14px;
+      font-weight:900;
+      line-height:1.5;
+      display:none;
+      text-align:center;
+    }
+    .check-result.show{ display:block; }
+    .check-result.prompt{ background:var(--red-soft); color:var(--red); border:1.5px solid var(--red-mid); }
+    .check-result.ok{ background:var(--green-soft); color:var(--green); }
+
+    /* steps */
+    .steps-section{ background:var(--teal); color:#fff; }
+    .steps-section .section-head h2{ color:#fff; }
+    .steps-section .section-head p{ color:rgba(255,255,255,0.7); }
+    .step-card{
+      background:rgba(255,255,255,0.1);
+      border:1.5px solid rgba(255,255,255,0.15);
+      border-radius:var(--radius);
+      padding:18px;
+      margin-bottom:12px;
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      opacity:0;
+      transform:translateX(-12px);
+      transition:opacity .5s ease, transform .5s ease;
+    }
+    .step-card.visible{ opacity:1; transform:none; }
+    .step-num{
+      width:38px; height:38px;
+      background:#fff; color:var(--teal);
+      border-radius:50%;
+      font-size:18px;
+      font-weight:900;
+      display:flex; align-items:center; justify-content:center;
+      flex-shrink:0;
+    }
+    .step-title{ font-size:15px; font-weight:900; margin-bottom:4px; }
+    .step-body{ font-size:13.5px; opacity:.9; line-height:1.6; }
+
+    .tip-box{
+      background:rgba(255,255,255,0.1);
+      border-radius:12px;
+      padding:16px 16px;
+      margin-top:6px;
+      font-size:13.5px;
+      line-height:1.65;
+      opacity:.95;
+    }
+
+    /* food blocks (single clean system) */
+    .food-note-box{
+      font-size:14px;
+      color:var(--body);
+      line-height:1.7;
+      background:var(--sand);
+      border-radius:12px;
+      padding:14px 16px;
+      margin-bottom:16px;
+    }
+    .food-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:10px;
+    }
+    .food-card{
+      border-radius:12px;
+      overflow:hidden;
+      background:var(--white);
+      box-shadow:var(--shadow);
+      border-top:3px solid var(--red-mid);
+      opacity:0;
+      transform:translateY(12px);
+      transition:opacity .5s ease, transform .5s ease;
+    }
+    .food-card.visible{ opacity:1; transform:none; }
+    .food-img-wrap{ width:100%; aspect-ratio:1; overflow:hidden; background:#eee; }
+    .food-img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .food-label{ font-size:11.5px; font-weight:900; color:var(--ink); padding:8px 10px 2px; }
+    .food-source{ font-size:10px; color:var(--muted); padding:0 10px 10px; font-style:italic; }
+    .food-disclaimer{ font-size:12px; color:var(--muted); text-align:center; line-height:1.6; margin-top:12px; }
+
+    /* CTA */
+    .cta-section{
+      background:var(--red);
+      color:#fff;
+      text-align:center;
+      padding:40px 22px;
+    }
+    .cta-section h2{
+      font-family:'Lora',serif;
+      font-size:24px;
+      font-weight:600;
+      margin-bottom:10px;
+      line-height:1.3;
+    }
+    .cta-section p{ font-size:14.5px; opacity:.92; margin-bottom:22px; line-height:1.65; }
+    .cta-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      background:#fff;
+      color:var(--red);
+      font-family:inherit;
+      font-weight:900;
+      font-size:16px;
+      padding:16px 22px;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
+      text-decoration:none;
+      box-shadow:0 6px 20px rgba(0,0,0,0.2);
+    }
+    .cta-note{ font-size:12px; opacity:.7; margin-top:14px; }
+
+    footer{
+      background:#1A1208;
+      color:rgba(255,255,255,0.5);
+      padding:28px 22px;
+      font-size:11px;
+      line-height:1.8;
+    }
+    footer strong{ color:rgba(255,255,255,0.75); display:block; margin-bottom:8px; font-size:12px; }
+  </style>
+</head>
+
+<body>
+  <!-- SVG icon set (keep yours; shortened here) -->
+  <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="ico-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2.1C10.5 3.5 9.26 3 7.5 3A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+    </symbol>
+    <symbol id="ico-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+      <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+    </symbol>
+    <symbol id="ico-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </symbol>
+    <symbol id="ico-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+    </symbol>
+    <symbol id="ico-bug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="13" r="4"/>
+      <path d="M12 3v4M4.22 6.22l2.83 2.83M2 14h4M4.22 19.78l2.83-2.83M12 21v-4M19.78 19.78l-2.83-2.83M22 14h-4M19.78 6.22l-2.83 2.83"/>
+    </symbol>
+    <symbol id="ico-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 2v7.31L5 20h14l-5-10.69V2"/><line x1="8.5" y1="2" x2="15.5" y2="2"/>
+    </symbol>
+    <symbol id="ico-smile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><path d="M8 13s1.5 3 4 3 4-3 4-3"/>
+      <line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+    </symbol>
+    <symbol id="ico-frown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/>
+      <line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+    </symbol>
+    <symbol id="ico-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></symbol>
+    <symbol id="ico-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></symbol>
+    <symbol id="ico-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+  </svg>
+
+  <!-- LANGUAGE PICKER -->
+  <div class="lang-screen" id="langScreen">
+    <div class="lang-logo" aria-hidden="true">
+      <svg width="36" height="36" style="color:white"><use href="#ico-heart"></use></svg>
+    </div>
+    <div class="lang-title" id="langTitleBlock">Choose your language</div>
+    <p class="lang-sub" id="langSubBlock">Select the language you'd like to read this in.</p>
+
+    <div class="lang-grid">
+      <button class="lang-btn" type="button" onclick="setLang('en')">
+        <span class="lang-flag">🇺🇸</span>
+        <span class="lang-native">English</span>
+        <span class="lang-english">English</span>
+      </button>
+      <button class="lang-btn" type="button" onclick="setLang('ko')">
+        <span class="lang-flag">🇰🇷</span>
+        <span class="lang-native">한국어</span>
+        <span class="lang-english">Korean</span>
+      </button>
+      <button class="lang-btn" type="button" onclick="setLang('ja')">
+        <span class="lang-flag">🇯🇵</span>
+        <span class="lang-native">日本語</span>
+        <span class="lang-english">Japanese</span>
+      </button>
+      <button class="lang-btn" type="button" onclick="setLang('vi')">
+        <span class="lang-flag">🇻🇳</span>
+        <span class="lang-native">Tiếng Việt</span>
+        <span class="lang-english">Vietnamese</span>
+      </button>
+      <button class="lang-btn" type="button" onclick="setLang('zh')" style="grid-column: span 2;">
+        <span class="lang-flag">🇨🇳</span>
+        <span class="lang-native">中文</span>
+        <span class="lang-english">Chinese (Simplified)</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div id="mainContent">
+    <div class="lang-bar">
+      <span id="langBarLabel">English</span>
+      <button class="lang-change-btn" type="button" onclick="showLangPicker()" id="langChangeBtn">Change language</button>
+    </div>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-icon" aria-hidden="true"><svg width="36" height="36" style="color:white"><use href="#ico-heart"></use></svg></div>
+      <h1 id="heroTitle"></h1>
+      <p class="hero-msg" id="heroMsg"></p>
+
+      <div class="audio-wrap" aria-label="Audio message">
+        <div class="audio-pill">
+          <button class="play-btn" type="button" aria-label="Play audio" onclick="togglePlay()">
+            <svg id="playIcon" width="14" height="14" style="color:var(--red)"><use href="#ico-play"></use></svg>
+          </button>
+          <div style="flex:1">
+            <div class="audio-label" id="audioLabel"></div>
+            <div class="audio-sub" id="audioSub"></div>
+          </div>
+        </div>
+        <div class="progress-bar" aria-hidden="true"><div class="progress-fill" id="progress"></div></div>
+        <button class="script-toggle" type="button" id="scriptToggleBtn" onclick="toggleScript()"></button>
+        <div class="script-box" id="scriptBox"></div>
+      </div>
+    </header>
+
+    <!-- SECTION 1 -->
+    <section class="section">
+      <div class="section-head">
+        <h2 id="s1Title"></h2>
+        <p id="s1Sub"></p>
+      </div>
+
+      <div class="card red-card">
+        <div class="card-icon"><svg width="26" height="26" style="color:var(--red)"><use href="#ico-warn"></use></svg></div>
+        <div class="card-title" id="c1Title"></div>
+        <div class="card-body" id="c1Body"></div>
+      </div>
+
+      <div class="card white-card">
+        <div class="card-icon"><svg width="26" height="26" style="color:var(--ink)"><use href="#ico-globe"></use></svg></div>
+        <div class="card-title" id="c2Title"></div>
+        <div class="card-body" id="c2Body"></div>
+      </div>
+
+      <div class="card red-card">
+        <div class="card-icon"><svg width="26" height="26" style="color:var(--red)"><use href="#ico-clock"></use></svg></div>
+        <div class="card-title" id="c3Title"></div>
+        <div class="card-body" id="c3Body"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="section" style="background:var(--sand); padding-top:18px;">
+      <div class="section-head">
+        <h2 id="s2Title"></h2>
+        <p id="s2Sub"></p>
+      </div>
+
+      <div class="compare-strip" id="compareStrip">
+        <div class="compare-row">
+          <div class="compare-icon"><svg width="22" height="22" style="color:var(--red)"><use href="#ico-heart"></use></svg></div>
+          <div class="compare-text">
+            <div class="compare-name" id="cmp1Name"></div>
+            <div class="compare-note" id="cmp1Note"></div>
+          </div>
+          <div class="compare-bar-wrap">
+            <div class="compare-bar" data-w="100"></div>
+            <div class="compare-val" id="cmp1Val"></div>
+          </div>
+        </div>
+
+        <div class="compare-row">
+          <div class="compare-icon"><svg width="22" height="22" style="color:#c0392b;opacity:.8"><use href="#ico-heart"></use></svg></div>
+          <div class="compare-text">
+            <div class="compare-name" id="cmp2Name"></div>
+            <div class="compare-note" id="cmp2Note"></div>
+          </div>
+          <div class="compare-bar-wrap">
+            <div class="compare-bar" data-w="70"></div>
+            <div class="compare-val" id="cmp2Val"></div>
+          </div>
+        </div>
+
+        <div class="compare-row">
+          <div class="compare-icon"><svg width="22" height="22" style="color:#c0392b;opacity:.6"><use href="#ico-heart"></use></svg></div>
+          <div class="compare-text">
+            <div class="compare-name" id="cmp3Name"></div>
+            <div class="compare-note" id="cmp3Note"></div>
+          </div>
+          <div class="compare-bar-wrap">
+            <div class="compare-bar" data-w="48"></div>
+            <div class="compare-val" id="cmp3Val"></div>
+          </div>
+        </div>
+
+        <div class="compare-row">
+          <div class="compare-icon"><svg width="22" height="22" style="color:#bbb"><use href="#ico-heart"></use></svg></div>
+          <div class="compare-text">
+            <div class="compare-name" id="cmp4Name"></div>
+            <div class="compare-note" id="cmp4Note"></div>
+          </div>
+          <div class="compare-bar-wrap">
+            <div class="compare-bar low" data-w="11"></div>
+            <div class="compare-val low" id="cmp4Val"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card gold-card" style="text-align:center;">
+        <div class="card-icon" style="margin:0 auto 14px;"><svg width="26" height="26" style="color:var(--gold)"><use href="#ico-heart"></use></svg></div>
+        <div class="card-title" id="c4Title"></div>
+        <div class="card-body" id="c4Body"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="section">
+      <div class="section-head">
+        <h2 id="s3Title"></h2>
+        <p id="s3Sub"></p>
+      </div>
+
+      <div class="card teal-card">
+        <div class="card-icon"><svg width="26" height="26" style="color:var(--teal)"><use href="#ico-bug"></use></svg></div>
+        <div class="card-title" id="c5Title"></div>
+        <div class="card-body" id="c5Body"></div>
+      </div>
+
+      <div class="card green-card">
+        <div class="card-icon"><svg width="26" height="26" style="color:var(--green)"><use href="#ico-flask"></use></svg></div>
+        <div class="card-title" id="c6Title"></div>
+        <div class="card-body" id="c6Body"></div>
+      </div>
+
+      <div class="fact-row">
+        <div class="fact-box red">
+          <div class="big" id="factLateVal">7.5%</div>
+          <div class="label" id="factLate"></div>
+        </div>
+        <div class="fact-box green" style="transition-delay:.1s">
+          <div class="big" id="factEarlyVal">76%</div>
+          <div class="label" id="factEarly"></div>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:6px;" id="factSource"></p>
+
+      <!-- FOOD (single version, clean IDs) -->
+      <div style="margin-top:22px;">
+        <div class="section-head" style="margin-bottom:14px;">
+          <h2 id="foodA_Title" style="font-size:18px;"></h2>
+          <p id="foodA_Sub"></p>
+        </div>
+
+        <div class="food-grid" id="foodA_Grid">
+          <div class="card" style="opacity:1; transform:none; box-shadow:none; margin-bottom:0; background:#fff; border-radius:12px; padding:14px 12px;">
+            <div style="font-size:24px">🥢</div>
+            <div style="font-size:13px;font-weight:900;margin-top:4px;" id="foodA_1_name"></div>
+            <div style="font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.5" id="foodA_1_note"></div>
+          </div>
+          <div class="card" style="opacity:1; transform:none; box-shadow:none; margin-bottom:0; background:#fff; border-radius:12px; padding:14px 12px;">
+            <div style="font-size:24px">🥬</div>
+            <div style="font-size:13px;font-weight:900;margin-top:4px;" id="foodA_2_name"></div>
+            <div style="font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.5" id="foodA_2_note"></div>
+          </div>
+          <div class="card" style="opacity:1; transform:none; box-shadow:none; margin-bottom:0; background:#fff; border-radius:12px; padding:14px 12px;">
+            <div style="font-size:24px">🍖</div>
+            <div style="font-size:13px;font-weight:900;margin-top:4px;" id="foodA_3_name"></div>
+            <div style="font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.5" id="foodA_3_note"></div>
+          </div>
+        </div>
+
+        <p class="food-disclaimer" id="foodA_Disclaimer"></p>
+      </div>
+    </section>
+
+    <!-- SECTION 4: CHECKLIST -->
+    <section class="section checklist-section">
+      <div class="section-head">
+        <h2 id="s4Title"></h2>
+        <p id="s4Sub"></p>
+      </div>
+
+      <div class="check-card">
+        <h3 id="checkHeading"></h3>
+
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box" data-checked="false"><svg width="16" height="16" style="color:white;display:none" class="checkmark"><use href="#ico-check"></use></svg></div>
+          <div class="check-text" id="chk1"></div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box" data-checked="false"><svg width="16" height="16" style="color:white;display:none" class="checkmark"><use href="#ico-check"></use></svg></div>
+          <div class="check-text" id="chk2"></div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box" data-checked="false"><svg width="16" height="16" style="color:white;display:none" class="checkmark"><use href="#ico-check"></use></svg></div>
+          <div class="check-text" id="chk3"></div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box" data-checked="false"><svg width="16" height="16" style="color:white;display:none" class="checkmark"><use href="#ico-check"></use></svg></div>
+          <div class="check-text" id="chk4"></div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box" data-checked="false"><svg width="16" height="16" style="color:white;display:none" class="checkmark"><use href="#ico-check"></use></svg></div>
+          <div class="check-text" id="chk5"></div>
+        </div>
+
+        <div class="check-result" id="checkResult"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: STEPS -->
+    <section class="section steps-section">
+      <div class="section-head">
+        <h2 id="s5Title"></h2>
+        <p id="s5Sub"></p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title" id="step1Title"></div>
+          <div class="step-body" id="step1Body"></div>
+        </div>
+      </div>
+
+      <div class="step-card" style="transition-delay:.1s">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title" id="step2Title"></div>
+          <div class="step-body" id="step2Body"></div>
+        </div>
+      </div>
+
+      <div class="step-card" style="transition-delay:.2s">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title" id="step3Title"></div>
+          <div class="step-body" id="step3Body"></div>
+        </div>
+      </div>
+
+      <div class="tip-box" id="tipText"></div>
+    </section>
+
+    <!-- FOOD SECTION (image cards) — clean, unique IDs -->
+    <section class="section" style="background:var(--warm)">
+      <div class="section-head">
+        <h2 id="foodB_Title"></h2>
+        <p id="foodB_Sub"></p>
+      </div>
+
+      <div class="food-note-box" id="foodB_Note"></div>
+
+      <div class="food-grid" id="foodB_Grid">
+        <!-- Replace placeholder src with your base64 images -->
+        <div class="food-card">
+          <div class="food-img-wrap">
+            <img class="food-img" src="" alt="Kimchi (paste your base64 src here)" />
+          </div>
+          <div class="food-label" id="foodB_1_label"></div>
+          <div class="food-source" id="foodB_1_source"></div>
+        </div>
+
+        <div class="food-card">
+          <div class="food-img-wrap">
+            <img class="food-img" src="" alt="Fermented soybean paste (paste your base64 src here)" />
+          </div>
+          <div class="food-label" id="foodB_2_label"></div>
+          <div class="food-source" id="foodB_2_source"></div>
+        </div>
+
+        <div class="food-card">
+          <div class="food-img-wrap">
+            <img class="food-img" src="" alt="Pickled vegetables (paste your base64 src here)" />
+          </div>
+          <div class="food-label" id="foodB_3_label"></div>
+          <div class="food-source" id="foodB_3_source"></div>
+        </div>
+      </div>
+
+      <p class="food-disclaimer" id="foodB_Disclaimer"></p>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <h2 id="ctaTitle"></h2>
+      <p id="ctaBody"></p>
+      <a class="cta-btn" id="ctaBtn" href="#" target="_blank" rel="noopener">Find a clinic</a>
+      <div class="cta-note" id="ctaNote"></div>
+    </section>
+
+    <footer>
+      <strong id="footerTitle"></strong>
+      <div id="footerBody"></div>
+    </footer>
+  </div>
+
+  <script>
+    // ─────────────────────────────────────────────
+    // TRANSLATIONS (fill in other languages as needed)
+    // ─────────────────────────────────────────────
+    const T = {
+      en: {
+        langName: "English",
+        langChange: "Change language",
+
+        heroTitle: "This is for you and your family.",
+        heroMsg: "If your family is from Korea, Japan, Vietnam, or China — there's something important you should know about your stomach health. It's not scary. It's actually really simple to act on.",
+        audioLabel: "Listen — 45 seconds",
+        audioSub: "A quick message for your family",
+        scriptToggle: "Read it instead ↓",
+        script: "If your family is from Korea, Japan, Vietnam, or China, you may have a higher risk of stomach cancer. The biggest cause is a bacteria called H. pylori. The good news: testing is easy and treatment can lower risk.",
+
+        s1Title: "Our communities are at higher risk.",
+        s1Sub: "And most people don't know it.",
+        c1Title: "Stomach cancer is more common in Asian Americans",
+        c1Body: "Asian American men get stomach cancer at more than <strong>twice the rate</strong> of white men. In Korean American communities, it can be up to <strong>13 times more common</strong>.",
+        c2Title: "It's especially common if you were born abroad",
+        c2Body: "People who immigrated from Korea, Japan, China, or Vietnam get stomach cancer <strong>2 to 3 times more often</strong> than Asian Americans born here.",
+        c3Title: "Most cases are caught too late",
+        c3Body: "Over <strong>1 in 3</strong> stomach cancers are found after they spread. Early detection greatly improves survival.",
+
+        s2Title: "How different is the risk, really?",
+        s2Sub: "Here’s a simple way to see it.",
+        cmp1Name: "Korean American men",
+        cmp1Note: "Born abroad, age 50+",
+        cmp1Val: "Highest risk",
+        cmp2Name: "Japanese American men",
+        cmp2Note: "Born abroad",
+        cmp2Val: "Very high",
+        cmp3Name: "Chinese & Vietnamese Americans",
+        cmp3Note: "First-generation",
+        cmp3Val: "High",
+        cmp4Name: "White Americans",
+        cmp4Note: "General population",
+        cmp4Val: "Much lower",
+        c4Title: "This doesn’t mean you will get it.",
+        c4Body: "Higher risk means it’s worth paying attention to — and there’s an easy thing you can do now.",
+
+        s3Title: "There’s a bacteria behind most of this.",
+        s3Sub: "And the good news — it’s treatable.",
+        c5Title: "Meet H. pylori",
+        c5Body: "<em>Helicobacter pylori</em> is a stomach bacteria many people carry without symptoms. Over time, it can damage the stomach and lead to cancer.",
+        c6Title: "Testing and treating it is easy",
+        c6Body: "A simple <strong>breath test, blood test, or stool test</strong> can detect it. Antibiotics can clear it and lower risk.",
+        factLate: "Survival when caught late",
+        factEarly: "Survival when caught early",
+        factSource: "Source: NCI SEER, 2018–2022",
+
+        foodA_Title: "Some common foods may raise your risk.",
+        foodA_Sub: "They don’t cause cancer alone — but frequent, long-term intake can increase risk, especially with H. pylori.",
+        foodA_1_name: "Salted fish",
+        foodA_1_note: "High salt can damage the stomach lining over time.",
+        foodA_2_name: "Kimchi & pickled vegetables",
+        foodA_2_note: "Fine sometimes — heavy daily intake for many years raises risk.",
+        foodA_3_name: "Smoked & cured meats",
+        foodA_3_note: "Processed meats can contain compounds linked to stomach cancer.",
+        foodA_Disclaimer: "These foods are part of rich cultural traditions. The goal isn’t to avoid them — it’s to be aware and get tested if you’re at risk.",
+
+        s4Title: "Does this apply to you?",
+        s4Sub: "Tap the ones that are true for you.",
+        checkHeading: "Quick check",
+        chk1: "I was born in Korea, Japan, Vietnam, China, or another Asian country",
+        chk2: "My mom, dad, or grandparent was born in one of these countries",
+        chk3: "I am 30 years old or older",
+        chk4: "Someone in my family has had stomach cancer",
+        chk5: "I’ve never been tested for H. pylori before",
+        checkPrompt: "Based on your answers, ask your doctor about H. pylori testing.",
+        checkOk: "Even if none apply, talk to a doctor if you have ongoing symptoms.",
+
+        s5Title: "What to do next",
+        s5Sub: "Three simple steps. That’s all.",
+        step1Title: "Talk to your doctor",
+        step1Body: 'Say: <em>"I’d like to be tested for H. pylori."</em> You can ask for an interpreter.',
+        step2Title: "Get the test — it’s simple",
+        step2Body: "Breath, blood, or stool test. No procedure. Results in days.",
+        step3Title: "If positive — treat it and move on",
+        step3Body: "A short antibiotic course clears H. pylori for most people and lowers risk.",
+        tipText: "<strong>No doctor right now?</strong> Community health centers may offer sliding-scale care and language support.",
+
+        foodB_Title: "Diet and stomach cancer risk",
+        foodB_Sub: "Some food patterns, over time, are linked to higher risk.",
+        foodB_Note: "This is about awareness, not fear. If you’re at higher risk, screening and H. pylori testing matter most.",
+        foodB_1_label: "Kimchi",
+        foodB_1_source: "Nan et al., 2005",
+        foodB_2_label: "Fermented soybean paste",
+        foodB_2_source: "Nan et al., 2005",
+        foodB_3_label: "Pickled vegetables",
+        foodB_3_source: "Yoo et al., 2020",
+        foodB_Disclaimer: "Food is culture. Choose balance, lower salt, and get tested if you’re at risk.",
+
+        ctaTitle: "One simple action can lower risk.",
+        ctaBody: "Ask for H. pylori testing. It’s fast, and treatment can help prevent cancer.",
+        ctaBtn: "Find a clinic",
+        ctaNote: "Tip: ask for interpreter services if you need them.",
+        footerTitle: "Not medical advice.",
+        footerBody: "This is educational. If you have symptoms or concerns, talk to a healthcare professional."
+      },
+
+      // You can paste full KO/JA/VI/ZH here next.
+      ko: { langName:"한국어", langChange:"언어 변경", heroTitle:"", heroMsg:"", audioLabel:"", audioSub:"", scriptToggle:"", script:"" },
+      ja: { langName:"日本語", langChange:"言語を変更", heroTitle:"", heroMsg:"", audioLabel:"", audioSub:"", scriptToggle:"", script:"" },
+      vi: { langName:"Tiếng Việt", langChange:"Đổi ngôn ngữ", heroTitle:"", heroMsg:"", audioLabel:"", audioSub:"", scriptToggle:"", script:"" },
+      zh: { langName:"中文", langChange:"切换语言", heroTitle:"", heroMsg:"", audioLabel:"", audioSub:"", scriptToggle:"", script:"" },
+    };
+
+    // ─────────────────────────────────────────────
+    // STATE
+    // ─────────────────────────────────────────────
+    let currentLang = "en";
+    let audio = null;
+
+    // Optional: replace with your own audio file
+    const AUDIO_SRC = ""; // e.g. "audio/message-en.mp3"
+
+    // ─────────────────────────────────────────────
+    // DOM HELPERS
+    // ─────────────────────────────────────────────
+    const $ = (id) => document.getElementById(id);
+
+    function setText(id, text){ if ($(id)) $(id).textContent = text ?? ""; }
+    function setHTML(id, html){ if ($(id)) $(id).innerHTML = html ?? ""; }
+
+    // ─────────────────────────────────────────────
+    // LANGUAGE
+    // ─────────────────────────────────────────────
+    function applyLang(lang){
+      currentLang = lang;
+      const t = T[lang] || T.en;
+
+      // set body font class
+      document.body.classList.remove("lang-en","lang-ko","lang-ja","lang-vi","lang-zh");
+      document.body.classList.add(`lang-${lang}`);
+
+      setText("langBarLabel", t.langName);
+      setText("langChangeBtn", t.langChange);
+
+      setText("heroTitle", t.heroTitle);
+      setText("heroMsg", t.heroMsg);
+      setText("audioLabel", t.audioLabel);
+      setText("audioSub", t.audioSub);
+      setText("scriptToggleBtn", t.scriptToggle);
+      setText("scriptBox", t.script);
+
+      setText("s1Title", t.s1Title);
+      setText("s1Sub", t.s1Sub);
+      setText("c1Title", t.c1Title);
+      setHTML("c1Body", t.c1Body);
+      setText("c2Title", t.c2Title);
+      setHTML("c2Body", t.c2Body);
+      setText("c3Title", t.c3Title);
+      setHTML("c3Body", t.c3Body);
+
+      setText("s2Title", t.s2Title);
+      setText("s2Sub", t.s2Sub);
+      setText("cmp1Name", t.cmp1Name); setText("cmp1Note", t.cmp1Note); setText("cmp1Val", t.cmp1Val);
+      setText("cmp2Name", t.cmp2Name); setText("cmp2Note", t.cmp2Note); setText("cmp2Val", t.cmp2Val);
+      setText("cmp3Name", t.cmp3Name); setText("cmp3Note", t.cmp3Note); setText("cmp3Val", t.cmp3Val);
+      setText("cmp4Name", t.cmp4Name); setText("cmp4Note", t.cmp4Note); setText("cmp4Val", t.cmp4Val);
+      setText("c4Title", t.c4Title);
+      setText("c4Body", t.c4Body);
+
+      setText("s3Title", t.s3Title);
+      setText("s3Sub", t.s3Sub);
+      setText("c5Title", t.c5Title); setHTML("c5Body", t.c5Body);
+      setText("c6Title", t.c6Title); setHTML("c6Body", t.c6Body);
+      setText("factLate", t.factLate);
+      setText("factEarly", t.factEarly);
+      setText("factSource", t.factSource);
+
+      setText("foodA_Title", t.foodA_Title);
+      setText("foodA_Sub", t.foodA_Sub);
+      setText("foodA_1_name", t.foodA_1_name);
+      setText("foodA_1_note", t.foodA_1_note);
+      setText("foodA_2_name", t.foodA_2_name);
+      setText("foodA_2_note", t.foodA_2_note);
+      setText("foodA_3_name", t.foodA_3_name);
+      setText("foodA_3_note", t.foodA_3_note);
+      setText("foodA_Disclaimer", t.foodA_Disclaimer);
+
+      setText("s4Title", t.s4Title);
+      setText("s4Sub", t.s4Sub);
+      setText("checkHeading", t.checkHeading);
+      setText("chk1", t.chk1);
+      setText("chk2", t.chk2);
+      setText("chk3", t.chk3);
+      setText("chk4", t.chk4);
+      setText("chk5", t.chk5);
+
+      setText("s5Title", t.s5Title);
+      setText("s5Sub", t.s5Sub);
+      setText("step1Title", t.step1Title);
+      setHTML("step1Body", t.step1Body);
+      setText("step2Title", t.step2Title);
+      setText("step2Body", t.step2Body);
+      setText("step3Title", t.step3Title);
+      setText("step3Body", t.step3Body);
+      setHTML("tipText", t.tipText);
+
+      setText("foodB_Title", t.foodB_Title);
+      setText("foodB_Sub", t.foodB_Sub);
+      setText("foodB_Note", t.foodB_Note);
+      setText("foodB_1_label", t.foodB_1_label);
+      setText("foodB_1_source", t.foodB_1_source);
+      setText("foodB_2_label", t.foodB_2_label);
+      setText("foodB_2_source", t.foodB_2_source);
+      setText("foodB_3_label", t.foodB_3_label);
+      setText("foodB_3_source", t.foodB_3_source);
+      setText("foodB_Disclaimer", t.foodB_Disclaimer);
+
+      setText("ctaTitle", t.ctaTitle);
+      setText("ctaBody", t.ctaBody);
+      setText("ctaBtn", t.ctaBtn);
+      setText("ctaNote", t.ctaNote);
+
+      setText("footerTitle", t.footerTitle);
+      setText("footerBody", t.footerBody);
+
+      // reset checklist result when language changes
+      resetChecklist();
+    }
+
+    function setLang(lang){
+      applyLang(lang);
+      localStorage.setItem("lang", lang);
+
+      document.getElementById("langScreen").classList.add("hidden");
+      document.getElementById("mainContent").classList.add("show");
+
+      // lazy init audio
+      if (!audio && AUDIO_SRC){
+        audio = new Audio(AUDIO_SRC);
+        audio.addEventListener("timeupdate", updateProgress);
+        audio.addEventListener("ended", () => setPlayIcon(false));
+      }
+    }
+
+    function showLangPicker(){
+      document.getElementById("mainContent").classList.remove("show");
+      document.getElementById("langScreen").classList.remove("hidden");
+      // stop audio
+      if (audio && !audio.paused) audio.pause();
+      setPlayIcon(false);
+    }
+
+    // ─────────────────────────────────────────────
+    // AUDIO
+    // ─────────────────────────────────────────────
+    function setPlayIcon(isPlaying){
+      const icon = document.getElementById("playIcon");
+      if (!icon) return;
+      icon.innerHTML = isPlaying
+        ? '<use href="#ico-pause"></use>'
+        : '<use href="#ico-play"></use>';
+    }
+
+    function togglePlay(){
+      if (!AUDIO_SRC){
+        // no audio file provided
+        alert("Add an audio file path to AUDIO_SRC in the script.");
+        return;
+      }
+      if (!audio){
+        audio = new Audio(AUDIO_SRC);
+        audio.addEventListener("timeupdate", updateProgress);
+        audio.addEventListener("ended", () => setPlayIcon(false));
+      }
+      if (audio.paused){
+        audio.play();
+        setPlayIcon(true);
+      } else {
+        audio.pause();
+        setPlayIcon(false);
+      }
+    }
+
+    function updateProgress(){
+      if (!audio) return;
+      const pct = (audio.currentTime / audio.duration) * 100;
+      document.getElementById("progress").style.width = `${pct || 0}%`;
+    }
+
+    function toggleScript(){
+      document.getElementById("scriptBox").classList.toggle("open");
+    }
+
+    // ─────────────────────────────────────────────
+    // CHECKLIST
+    // ─────────────────────────────────────────────
+    function toggleCheck(row){
+      const box = row.querySelector(".check-box");
+      const mark = row.querySelector(".checkmark");
+      const checked = box.dataset.checked === "true";
+      box.dataset.checked = checked ? "false" : "true";
+      box.classList.toggle("checked", !checked);
+      if (mark) mark.style.display = !checked ? "block" : "none";
+      updateChecklistResult();
+    }
+
+    function resetChecklist(){
+      document.querySelectorAll(".check-box").forEach(b => {
+        b.dataset.checked = "false";
+        b.classList.remove("checked");
+        const mark = b.querySelector(".checkmark");
+        if (mark) mark.style.display = "none";
+      });
+      const r = document.getElementById("checkResult");
+      r.className = "check-result";
+      r.textContent = "";
+      r.style.display = "none";
+    }
+
+    function updateChecklistResult(){
+      const t = T[currentLang] || T.en;
+      const checkedCount = [...document.querySelectorAll(".check-box")]
+        .filter(b => b.dataset.checked === "true").length;
+
+      const r = document.getElementById("checkResult");
+      if (checkedCount === 0){
+        r.className = "check-result show ok";
+        r.textContent = t.checkOk;
+        r.style.display = "block";
+        return;
+      }
+      r.className = "check-result show prompt";
+      r.textContent = t.checkPrompt;
+      r.style.display = "block";
+    }
+
+    // ─────────────────────────────────────────────
+    // SCROLL ANIMATIONS
+    // ─────────────────────────────────────────────
+    function initAnimations(){
+      const items = [
+        ...document.querySelectorAll(".card"),
+        ...document.querySelectorAll(".fact-box"),
+        ...document.querySelectorAll(".compare-strip"),
+        ...document.querySelectorAll(".step-card"),
+        ...document.querySelectorAll(".food-card")
+      ];
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting){
+            e.target.classList.add("visible");
+            // animate compare bars once
+            if (e.target.classList.contains("compare-strip")){
+              e.target.querySelectorAll(".compare-bar").forEach(bar => {
+                const w = bar.getAttribute("data-w");
+                bar.style.width = `${w}%`;
+              });
+            }
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      items.forEach(el => io.observe(el));
+    }
+
+    // ─────────────────────────────────────────────
+    // INIT
+    // ─────────────────────────────────────────────
+    (function init(){
+      const saved = localStorage.getItem("lang");
+      if (saved && T[saved]){
+        // auto-enter if they already chose a language before
+        applyLang(saved);
+        document.getElementById("langScreen").classList.add("hidden");
+        document.getElementById("mainContent").classList.add("show");
+      } else {
+        // show picker, but still load default english copy (for preview)
+        applyLang("en");
+      }
+      initAnimations();
+    })();
+  </script>
+</body>
+</html>

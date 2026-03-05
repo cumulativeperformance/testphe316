@@ -336,6 +336,7 @@
     <h1 id="heroTitle">This is for you and your family.</h1>
     <p class="hero-msg" id="heroMsg">If your family is from Korea, Japan, Vietnam, or China — there's something important you should know about your stomach health. It's not scary. It's actually really simple to act on.</p>
     <div class="audio-wrap">
+      <audio id="myAudio" src="message.mp3"></audio>
       <div class="audio-pill">
         <button class="play-btn" onclick="togglePlay()"><svg id="playIcon" width="14" height="14" style="color:var(--red)"><use href="#ico-play"/></svg></button>
         <div style="flex:1">
@@ -535,6 +536,38 @@
 </div><!-- end mainContent -->
 
 <script>
+
+// ── AUDIO PLAYER LOGIC ──
+function togglePlay() {
+  const audio = document.getElementById('myAudio');
+  const icon = document.getElementById('playIcon');
+  
+  if (audio.paused) {
+    audio.play();
+    icon.innerHTML = '<use href="#ico-pause"/>'; // Switch to pause icon
+  } else {
+    audio.pause();
+    icon.innerHTML = '<use href="#ico-play"/>'; // Switch back to play icon
+  }
+}
+
+// Update the progress bar as the audio plays
+document.getElementById('myAudio').addEventListener('timeupdate', function() {
+  const progress = document.getElementById('progress');
+  // Calculate the percentage of the audio played
+  const percentage = (this.currentTime / this.duration) * 100;
+  progress.style.width = percentage + '%';
+});
+
+// Reset the button and progress bar when the audio finishes
+document.getElementById('myAudio').addEventListener('ended', function() {
+  const icon = document.getElementById('playIcon');
+  const progress = document.getElementById('progress');
+  
+  icon.innerHTML = '<use href="#ico-play"/>';
+  progress.style.width = '0%';
+});
+  
 // ═══════════════════════════════════════════
 // TRANSLATIONS
 // ═══════════════════════════════════════════

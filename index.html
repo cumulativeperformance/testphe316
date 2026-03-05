@@ -1016,32 +1016,6 @@ function toggleCheck(el) {
   r.textContent = checked >= 2 ? t.checkPrompt(checked) : t.checkOk;
 }
 
-// ═══════════════════════════════════════════
-// AUDIO PLAYER (simulated)
-// ═══════════════════════════════════════════
-let playing = false, prog = 0, timer = null;
-function togglePlay() {
-  const icon = document.getElementById('playIcon');
-  const fill = document.getElementById('progress');
-  if (playing) {
-    clearInterval(timer);
-    icon.innerHTML = '<use href="#ico-play"/>';
-    playing = false;
-  } else {
-    playing = true;
-    icon.innerHTML = '<use href="#ico-pause"/>';
-    timer = setInterval(() => {
-      prog += 100 / 450;
-      fill.style.width = Math.min(prog, 100) + '%';
-      if (prog >= 100) {
-        clearInterval(timer);
-        icon.innerHTML = '<use href="#ico-play"/>';
-        playing = false; prog = 0;
-        setTimeout(() => fill.style.width = '0', 800);
-      }
-    }, 100);
-  }
-}
 
 function toggleScript() {
   scriptOpen = !scriptOpen;
